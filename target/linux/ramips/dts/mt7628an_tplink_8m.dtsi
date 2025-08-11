@@ -35,18 +35,18 @@
 			partition@20000 {
 				compatible = "tplink,firmware";
 				label = "firmware";
-				reg = <0x20000 0x7a0000>;
+				reg = <0x20000 0xfa0000>; // <--- THAY ĐỔI: Mở rộng size
 			};
 
-			partition@7c0000 {
+			partition@fc0000 { // <--- THAY ĐỔI: Offset mới
 				label = "config";
-				reg = <0x7c0000 0x10000>;
+				reg = <0xfc0000 0x10000>;
 				read-only;
 			};
 
-			factory: partition@7d0000 {
+			factory: partition@fd0000 { // <--- THAY ĐỔI: Offset mới
 				label = "factory";
-				reg = <0x7d0000 0x30000>;
+				reg = <0xfd0000 0x30000>;
 				read-only;
 
 				nvmem-layout {
