@@ -23,8 +23,8 @@
 
 		partitions {
 			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
+			#address-cells = ;
+			#size-cells = ;
 
 			partition@0 {
 				label = "boot";
@@ -35,29 +35,29 @@
 			partition@20000 {
 				compatible = "tplink,firmware";
 				label = "firmware";
-				reg = <0x20000 0xfa0000>; // <--- THAY ĐỔI: Mở rộng size
+				reg = <0x20000 0xfa0000>;
 			};
 
-			partition@fc0000 { // <--- THAY ĐỔI: Offset mới
+			partition@fc0000 {
 				label = "config";
 				reg = <0xfc0000 0x10000>;
-				read-only;
+				/* read-only; */ // <--- ĐÃ XÓA
 			};
 
-			factory: partition@fd0000 { // <--- THAY ĐỔI: Offset mới
+			factory: partition@fd0000 {
 				label = "factory";
 				reg = <0xfd0000 0x30000>;
-				read-only;
+				/* read-only; */ // <--- ĐÃ XÓA
 
 				nvmem-layout {
 					compatible = "fixed-layout";
-					#address-cells = <1>;
-					#size-cells = <1>;
+					#address-cells = ;
+					#size-cells = ;
 
 					macaddr_factory_f100: macaddr@f100 {
 						compatible = "mac-base";
 						reg = <0xf100 0x6>;
-						#nvmem-cell-cells = <1>;
+						#nvmem-cell-cells = ;
 					};
 
 					eeprom_factory_20000: eeprom@20000 {
