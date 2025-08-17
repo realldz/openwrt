@@ -29,23 +29,25 @@
 			partition@0 {
 				label = "boot";
 				reg = <0x0 0x20000>;
+				read-only;
 			};
 
 			partition@20000 {
 				compatible = "tplink,firmware";
 				label = "firmware";
-				reg = <0x20000 0xfa0000>;
+				reg = <0x20000 0xfa0000>; // <--- THAY ĐỔI: Mở rộng size
 			};
 
-			partition@fc0000 { 
+			partition@fc0000 { // <--- THAY ĐỔI: Offset mới
 				label = "config";
 				reg = <0xfc0000 0x10000>;
-
+				read-only;
 			};
 
-			factory: partition@fd0000 { 
+			factory: partition@fd0000 { // <--- THAY ĐỔI: Offset mới
 				label = "factory";
 				reg = <0xfd0000 0x30000>;
+				read-only;
 
 				nvmem-layout {
 					compatible = "fixed-layout";
